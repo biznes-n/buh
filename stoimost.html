@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   :root {
     --green-dark: #153524; --green: #1f4a33; --green-light: #eaf2ed;
@@ -26,24 +25,28 @@
 
   .site-header {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; max-width: 1100px; margin: 0 auto; padding: 16px 0;
+    gap: 16px; max-width: 1100px; margin: 0 auto; padding: 18px 0;
     flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px;
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand:hover .brand-text h1 { color: var(--green); }
   .logo-fallback {
-    width: 40px; height: 40px; border-radius: 8px; background: var(--green);
+    width: 44px; height: 44px; border-radius: 8px; background: var(--green);
     display: flex; align-items: center; justify-content: center;
-    color: var(--sand); font-weight: 800; font-size: 20px;
+    color: var(--sand); font-weight: 800; font-size: 22px;
   }
-  .brand-text h1 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; transition: 0.2s; }
   .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
+  .header-right { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .header-phone a { font-size: 22px; font-weight: 800; color: var(--green-dark); text-decoration: none; letter-spacing: -0.3px; }
+  .header-phone a:hover { color: var(--green); }
   .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
   .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
   .site-nav a:hover { color: var(--green); }
 
   .page-hero {
     background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%);
-    border-radius: 16px; padding: 40px 32px; color: #fff; margin-bottom: 24px;
+    border-radius: 20px; padding: 40px 36px; color: #fff; margin-bottom: 24px;
     box-shadow: 0 12px 32px rgba(15,40,26,0.2);
   }
   .page-hero h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
@@ -92,7 +95,6 @@
   .calc-extra-block > summary:hover { background: var(--bg); border-radius: 12px; }
   .calc-extra-block > div { padding: 0 24px 20px; padding-top: 16px; }
 
-  /* Карточки в разделе 7 — белые, с тенью, БЕЗ любых рамок */
   .calc-extra-group {
     background: #ffffff !important;
     border: none !important;
@@ -170,8 +172,8 @@
   .calc-warn { color: var(--danger); font-size: 12px; font-weight: 500; margin: 12px 0 0; padding: 10px 12px; background: var(--danger-bg); border-radius: 6px; }
   .calc-info-warn { color: var(--brown); font-size: 12px; margin: 12px 0 0; padding: 10px 12px; background: #fff8e1; border-radius: 6px; }
 
-  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(92,69,47,0.03); }
-  .info-block h3 { margin: 0 0 14px; font-size: 17px; color: var(--green-dark); }
+  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
+  .info-block h3 { margin: 0 0 18px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
   .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
   .info-block li { margin-bottom: 8px; }
   .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -183,7 +185,7 @@
   .requisites { font-size: 13px; line-height: 1.8; }
   .requisites strong { color: var(--green-dark); }
 
-  .faq-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
   .faq-item:last-child { border-bottom: none; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--green-dark); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
   .faq-item summary::-webkit-details-marker { display: none; }
@@ -230,23 +232,31 @@
     .calc-activity-grid { grid-template-columns: 1fr; gap: 8px; }
     .calc-total-price { font-size: 28px; }
     .calc-block, .calc-extra-block > summary, .calc-extra-block > div, .info-block { padding: 16px; }
-    .brand-text h1 { font-size: 18px; }
+    .brand-text h1 { font-size: 20px; }
+    .header-phone a { font-size: 18px; }
     .calc-btn-group { grid-template-columns: 1fr; }
     .calc-btn-pdf { padding: 12px; }
+    .site-header { flex-direction: column; align-items: flex-start; }
+    .header-right { width: 100%; justify-content: space-between; }
   }
 </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="brand">
+    <a href="index.html" class="brand">
       <div class="logo-fallback">Б</div>
       <div class="brand-text"><h1>БИЗНЕС-Н</h1><p>Бухгалтерия без штрафов и головной боли</p></div>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav">
+        <a href="index.html">Главная</a>
+        <a href="uslugi.html">Услуги</a>
+        <a href="stoimost.html">Стоимость</a>
+      </nav>
+      <div class="header-phone">
+        <a href="tel:+79242303010">+7 924 230 30 10</a>
+      </div>
     </div>
-    <nav class="site-nav">
-      <a href="index.html">Главная</a>
-      <a href="uslugi.html">Услуги</a>
-      <a href="stoimost.html">Стоимость</a>
-    </nav>
   </header>
 
   <div class="container">
@@ -430,6 +440,7 @@
             <div class="calc-btn-pdf" id="btnPdf" title="Скачать PDF"><svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
           </div>
           <div class="calc-phone-line">Или позвоните: <a href="tel:+79242303010">+7 924 230 30 10</a></div>
+          <div class="calc-phone-line" style="margin-top: 4px; font-size: 11px; color: rgba(255,255,255,0.6);">Не дозвонились? Напишите в <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-w" target="_blank" rel="noopener" style="color: var(--sand);">Макс</a> — ответим.</div>
 
           <details class="calc-details">
             <summary>Состав расчёта</summary>
@@ -884,6 +895,32 @@ function loadState() {
   } catch (e) {}
 }
 
+function applyUrlParams() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const uOrg = params.get('org');
+    const uMode = params.get('mode');
+    const uEmp = params.get('employees');
+    if (uOrg === 'ip' || uOrg === 'ooo') {
+      const r = document.querySelector(`input[name="org"][value="${uOrg}"]`);
+      if (r) r.checked = true;
+    }
+    renderModes();
+    if (uMode) {
+      const r = document.querySelector(`input[name="mode"][value="${uMode}"]`);
+      if (r) r.checked = true;
+    }
+    if (uEmp !== null) {
+      const e = parseInt(uEmp) || 0;
+      const er = $('employeesRu');
+      if (er) er.value = e;
+    }
+    if (window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  } catch (e) {}
+}
+
 document.querySelectorAll('input[name="org"]').forEach((el) => { el.addEventListener('change', () => { renderModes(); render(); }); });
 document.addEventListener('change', (e) => {
   if (e.target && e.target.name === 'mode') {
@@ -927,7 +964,6 @@ if (PRIVACY_URL) privacyLink.href = PRIVACY_URL;
 else privacyLink.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности скоро появится на сайте.'); });
 
 $('btnPdf').addEventListener('click', () => {
-  const btn = $('btnPdf'); const originalHtml = btn.innerHTML; btn.innerHTML = '⏳';
   const input = readInput(); const res = calculate(input);
   const pdfTemplate = $('pdf-template');
   $('pdf-tariff-name').innerHTML = res.headerLine1 + (res.headerLine2 ? '<br><span style="font-size:14px; font-weight:400; opacity:0.8; text-transform:none;">' + res.headerLine2 + '</span>' : '');
@@ -949,21 +985,7 @@ $('btnPdf').addEventListener('click', () => {
   $('pdf-total').innerHTML = totalText;
   $('pdf-total-sub').innerHTML = res.oneTime ? 'Разово: ' + fmt(res.oneTime) : '';
 
-  if (typeof html2pdf === 'undefined') {
-    btn.innerHTML = originalHtml;
-    window.print();
-    return;
-  }
-
-  const opt = { margin: 0, filename: 'Расчет_стоимости_БИЗНЕС-Н.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, backgroundColor: '#153524', scrollY: 0 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } };
-  html2pdf().set(opt).from(pdfTemplate).save().then(() => {
-    btn.innerHTML = originalHtml;
-  }).catch((err) => {
-    console.error(err);
-    btn.innerHTML = originalHtml;
-    alert('Не удалось создать PDF автоматически. Откроется диалог печати — сохраните как PDF.');
-    window.print();
-  });
+  window.print();
 });
 
 function buildMailto(subject, body) { return 'mailto:' + CALLBACK_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body); }
@@ -989,6 +1011,7 @@ $('btnCallback').addEventListener('click', () => {
   window.location.href = buildMailto('Обратный звонок с калькулятора', body);
 });
 
+applyUrlParams();
 renderModes();
 loadState();
 render();

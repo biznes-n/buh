@@ -23,19 +23,19 @@
   a { color: var(--green); }
   .container { max-width: 1100px; margin: 0 auto; }
 
-  /* Шапка — только телефон крупно справа */
   .site-header {
     display: flex; align-items: center; justify-content: space-between;
     gap: 16px; max-width: 1100px; margin: 0 auto; padding: 18px 0;
     flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 28px;
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand:hover .brand-text h1 { color: var(--green); }
   .logo-fallback {
     width: 44px; height: 44px; border-radius: 8px; background: var(--green);
     display: flex; align-items: center; justify-content: center;
     color: var(--sand); font-weight: 800; font-size: 22px;
   }
-  .brand-text h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; transition: 0.2s; }
   .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
   .header-right { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
   .header-phone a { font-size: 22px; font-weight: 800; color: var(--green-dark); text-decoration: none; letter-spacing: -0.3px; }
@@ -44,7 +44,6 @@
   .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
   .site-nav a:hover { color: var(--green); }
 
-  /* Hero */
   .hero {
     background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%);
     border-radius: 20px; padding: 48px 40px; color: #fff;
@@ -79,7 +78,6 @@
   .hero-stat .num { font-size: 26px; font-weight: 800; color: var(--sand); line-height: 1; }
   .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 6px; }
 
-  /* Блоки */
   .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
   .info-block h3 { margin: 0 0 18px; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.2px; }
   .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
@@ -88,7 +86,6 @@
   .price-range { background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin: 0 0 18px; line-height: 1.6; }
   .price-range strong { color: var(--green-dark); }
 
-  /* Мини-калькулятор */
   .mini-calc { background: var(--card); border: 2px solid var(--green-light); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 4px 20px rgba(33,92,62,0.06); }
   .mini-calc h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
   .mini-calc .mini-sub { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
@@ -102,17 +99,14 @@
   .mini-calc-result a { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--green-dark); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; transition: 0.2s; white-space: nowrap; }
   .mini-calc-result a:hover { background: var(--green); }
 
-  /* Что НЕ входит — плашка перед «Что входит» */
   .not-included { background: #fff8e1; border: 1px solid #f0e2cc; border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--brown); line-height: 1.6; margin: 0 0 18px; }
   .not-included strong { color: var(--green-dark); }
 
-  /* Что входит */
   .included-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .included-group { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
   .included-group h4 { margin: 0 0 10px; font-size: 13px; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.3px; }
   .included-group p { margin: 0; font-size: 14px; line-height: 1.6; }
 
-  /* Кому подходит */
   .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .for-who-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
   .for-who-item strong { display: block; color: var(--green-dark); margin-bottom: 6px; font-size: 15px; }
@@ -123,30 +117,25 @@
   .more-details[open] > summary::after { content: '↑'; }
   .more-details .for-who-grid { margin-top: 14px; }
 
-  /* Как начать */
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .step { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
   .step .step-num { font-size: 22px; font-weight: 800; color: var(--sand); margin-bottom: 6px; line-height: 1; }
   .step strong { display: block; color: var(--green-dark); margin-bottom: 4px; font-size: 14px; }
 
-  /* Что будет если */
   .what-if-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .what-if-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
   .what-if-item .q { font-weight: 700; color: var(--green-dark); margin-bottom: 6px; display: block; font-size: 14px; }
   .what-if-item .a { color: var(--text); }
 
-  /* Гарантия */
   .guarantee { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 12px; padding: 22px 26px; margin: 20px 0; font-size: 14px; line-height: 1.6; }
   .guarantee strong { color: var(--green-dark); }
 
-  /* Отзывы */
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .review-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
   .review-card .quote { color: var(--text); font-style: italic; margin-bottom: 12px; }
   .review-card .author { font-weight: 700; color: var(--green-dark); font-size: 12px; }
   .review-card .role { color: var(--muted); font-size: 11px; }
 
-  /* FAQ / спойлеры */
   .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
   .faq-item:last-child { border-bottom: none; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--green-dark); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
@@ -160,7 +149,6 @@
   .modes-table th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
   .modes-table td:first-child { font-weight: 600; color: var(--brown); white-space: nowrap; }
 
-  /* Связаться */
   .contacts-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
   .contacts-block h3 { margin: 0 0 16px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
   .contacts-block .contact-row { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; margin-bottom: 10px; }
@@ -199,10 +187,10 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand">
+    <a href="index.html" class="brand">
       <div class="logo-fallback">Б</div>
       <div class="brand-text"><h1>БИЗНЕС-Н</h1><p>Бухгалтерия без штрафов и головной боли</p></div>
-    </div>
+    </a>
     <div class="header-right">
       <nav class="site-nav">
         <a href="index.html">Главная</a>
@@ -240,7 +228,6 @@
       </div>
     </div>
 
-    <!-- Мини-калькулятор: цена сразу при изменении -->
     <div class="mini-calc" id="calc">
       <h3>Посчитайте стоимость за 2 минуты</h3>
       <p class="mini-sub">Базовый расчёт. Точную цену — с документами, кассами и доп. услугами — покажем на странице «Стоимость».</p>
@@ -275,8 +262,8 @@
 
     <div class="info-block">
       <h3>О компании «БИЗНЕС-Н»</h3>
-      <p style="font-size: 15px; margin: 0 0 10px;">Бухгалтерская компания из Уссурийска. Работаем с 2024 года, обслуживаем ИП и ООО по всей России. Команда из 3 бухгалтеров, средний срок сдачи отчётности — за 3 дня до дедлайна. Помогаем пройти проверки и избежать доначислений.</p>
-      <p style="font-size: 14px; margin: 0; color: var(--muted);">Офис в Уссурийске — для тех, кто рядом. Для остальных — удалённо, документы через ЭДО.</p>
+      <p style="font-size: 15px; margin: 0 0 10px;">«БИЗНЕС-Н» — бухгалтерская компания из Уссурийска. Работаем с 2024 года, обслуживаем ИП и ООО по всей России. Сдаём отчётность в срок, отвечаем на требования ФНС, помогаем пройти проверки без доначислений.</p>
+      <p style="font-size: 14px; margin: 0; color: var(--muted);">Работаем удалённо — документы через ЭДО, офис в Уссурийске для тех, кто рядом.</p>
     </div>
 
     <div class="info-block">
@@ -412,7 +399,6 @@
   </footer>
 
 <script>
-  // Мини-калькулятор: цена сразу при изменении
   const MINI_PRICES = {
     usn6_ip: 6000, usn6_ooo: 10000,
     usn15_ip: 10000, usn15_ooo: 15000,
@@ -432,7 +418,6 @@
     document.getElementById('miniCalcLink').href = 'stoimost.html?org=' + encodeURIComponent(org) + '&mode=' + encodeURIComponent(mode) + '&employees=' + encodeURIComponent(employees);
   }
 
-  // Переключение режимов
   const miniOrg = document.getElementById('miniOrg');
   const miniMode = document.getElementById('miniMode');
   function updateMiniModes() {
