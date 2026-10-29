@@ -18,105 +18,158 @@
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0; padding: 0 16px 40px; background: var(--bg); color: var(--text);
-    line-height: 1.5; scroll-behavior: smooth;
+    line-height: 1.6; scroll-behavior: smooth;
   }
   a { color: var(--green); }
   .container { max-width: 1100px; margin: 0 auto; }
 
+  /* Шапка — только телефон крупно справа */
   .site-header {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; max-width: 1100px; margin: 0 auto; padding: 16px 0;
-    flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+    gap: 16px; max-width: 1100px; margin: 0 auto; padding: 18px 0;
+    flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 28px;
   }
   .brand { display: flex; align-items: center; gap: 12px; }
   .logo-fallback {
-    width: 40px; height: 40px; border-radius: 8px; background: var(--green);
+    width: 44px; height: 44px; border-radius: 8px; background: var(--green);
     display: flex; align-items: center; justify-content: center;
-    color: var(--sand); font-weight: 800; font-size: 20px;
+    color: var(--sand); font-weight: 800; font-size: 22px;
   }
-  .brand-text h1 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
   .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
+  .header-right { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .header-phone a { font-size: 22px; font-weight: 800; color: var(--green-dark); text-decoration: none; letter-spacing: -0.3px; }
+  .header-phone a:hover { color: var(--green); }
   .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
   .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
   .site-nav a:hover { color: var(--green); }
 
+  /* Hero */
   .hero {
     background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%);
-    border-radius: 16px; padding: 40px 32px; color: #fff;
-    display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center;
-    box-shadow: 0 12px 32px rgba(15,40,26,0.2);
-    margin-bottom: 24px;
+    border-radius: 20px; padding: 48px 40px; color: #fff;
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
+    box-shadow: 0 16px 40px rgba(15,40,26,0.22);
+    margin-bottom: 32px;
   }
-  .hero h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
-  .hero p { margin: 0 0 18px; font-size: 16px; color: rgba(255,255,255,0.85); }
+  .hero h2 { margin: 0 0 16px; font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.8px; }
+  .hero .sub { margin: 0 0 20px; font-size: 17px; color: rgba(255,255,255,0.88); }
+  .hero .usp { display: inline-block; background: rgba(217,179,108,0.18); border: 1px solid rgba(217,179,108,0.4); color: var(--sand); padding: 8px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-bottom: 22px; }
   .hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .btn-primary {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 16px 28px; background: var(--sand); color: var(--green-dark);
-    text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px;
+    text-decoration: none; border-radius: 10px; font-weight: 700; font-size: 16px;
     transition: 0.2s; border: 1px solid #f0e2cc;
-    box-shadow: 0 4px 12px rgba(217,179,108,0.2);
+    box-shadow: 0 6px 18px rgba(217,179,108,0.25);
   }
   .btn-primary:hover { background: var(--sand-hover); transform: translateY(-1px); }
   .btn-secondary {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 14px 24px; background: rgba(255,255,255,0.1); color: #fff;
-    text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;
-    border: 1px solid rgba(255,255,255,0.25); transition: 0.2s;
+    padding: 14px 22px; background: rgba(255,255,255,0.08); color: #fff;
+    text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.22); transition: 0.2s;
   }
-  .btn-secondary:hover { background: rgba(255,255,255,0.2); }
-  .cta-hint { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 10px; }
-  .hero-stats { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+  .hero-stats { display: grid; grid-template-columns: 1fr; gap: 14px; }
   .hero-stat {
     background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px; padding: 14px 16px;
+    border-radius: 12px; padding: 16px 18px;
   }
-  .hero-stat .num { font-size: 24px; font-weight: 800; color: var(--sand); line-height: 1; }
-  .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .hero-stat .num { font-size: 26px; font-weight: 800; color: var(--sand); line-height: 1; }
+  .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 6px; }
 
-  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(92,69,47,0.03); }
-  .info-block h3 { margin: 0 0 14px; font-size: 17px; color: var(--green-dark); }
+  /* Блоки */
+  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
+  .info-block h3 { margin: 0 0 18px; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.2px; }
   .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
   .info-block li { margin-bottom: 8px; }
 
-  .price-range { background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 8px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .price-range { background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin: 0 0 18px; line-height: 1.6; }
   .price-range strong { color: var(--green-dark); }
 
-  .included-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .included-group { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
-  .included-group h4 { margin: 0 0 8px; font-size: 13px; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.3px; }
-  .included-group ul { margin: 0; padding-left: 18px; font-size: 13px; }
-  .included-group li { margin-bottom: 6px; }
+  /* Мини-калькулятор */
+  .mini-calc { background: var(--card); border: 2px solid var(--green-light); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 4px 20px rgba(33,92,62,0.06); }
+  .mini-calc h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
+  .mini-calc .mini-sub { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
+  .mini-calc-fields { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 14px; align-items: end; }
+  .mini-calc-field label { display: block; font-size: 12px; font-weight: 700; color: var(--brown); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .mini-calc-field select, .mini-calc-field input { width: 100%; padding: 12px 14px; font-size: 14px; font-family: inherit; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #fff; min-height: 46px; }
+  .mini-calc-field select:focus, .mini-calc-field input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(33,92,62,0.1); }
+  .mini-calc-result { margin-top: 18px; padding: 18px 20px; background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .mini-calc-result .res-text { font-size: 14px; color: var(--green-dark); }
+  .mini-calc-result .res-text strong { font-size: 22px; font-weight: 800; color: var(--green-dark); display: block; margin-top: 2px; letter-spacing: -0.5px; }
+  .mini-calc-result a { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--green-dark); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px; transition: 0.2s; white-space: nowrap; }
+  .mini-calc-result a:hover { background: var(--green); }
 
-  .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .for-who-item { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; }
-  .for-who-item strong { display: block; color: var(--green-dark); margin-bottom: 4px; font-size: 14px; }
+  /* Что НЕ входит — плашка перед «Что входит» */
+  .not-included { background: #fff8e1; border: 1px solid #f0e2cc; border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--brown); line-height: 1.6; margin: 0 0 18px; }
+  .not-included strong { color: var(--green-dark); }
+
+  /* Что входит */
+  .included-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .included-group { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .included-group h4 { margin: 0 0 10px; font-size: 13px; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.3px; }
+  .included-group p { margin: 0; font-size: 14px; line-height: 1.6; }
+
+  /* Кому подходит */
+  .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .for-who-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
+  .for-who-item strong { display: block; color: var(--green-dark); margin-bottom: 6px; font-size: 15px; }
+  .more-details { margin-top: 14px; }
+  .more-details > summary { cursor: pointer; font-size: 13px; color: var(--green); font-weight: 600; list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+  .more-details > summary::-webkit-details-marker { display: none; }
+  .more-details > summary::after { content: '→'; }
+  .more-details[open] > summary::after { content: '↑'; }
+  .more-details .for-who-grid { margin-top: 14px; }
+
+  /* Как начать */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .step { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
+  .step .step-num { font-size: 22px; font-weight: 800; color: var(--sand); margin-bottom: 6px; line-height: 1; }
+  .step strong { display: block; color: var(--green-dark); margin-bottom: 4px; font-size: 14px; }
+
+  /* Что будет если */
+  .what-if-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .what-if-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
+  .what-if-item .q { font-weight: 700; color: var(--green-dark); margin-bottom: 6px; display: block; font-size: 14px; }
+  .what-if-item .a { color: var(--text); }
+
+  /* Гарантия */
+  .guarantee { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 12px; padding: 22px 26px; margin: 20px 0; font-size: 14px; line-height: 1.6; }
+  .guarantee strong { color: var(--green-dark); }
+
+  /* Отзывы */
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .review-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 13px; line-height: 1.6; }
+  .review-card .quote { color: var(--text); font-style: italic; margin-bottom: 12px; }
+  .review-card .author { font-weight: 700; color: var(--green-dark); font-size: 12px; }
+  .review-card .role { color: var(--muted); font-size: 11px; }
+
+  /* FAQ / спойлеры */
+  .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--green-dark); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; color: var(--brown); font-size: 18px; line-height: 1; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item .faq-body { margin-top: 12px; font-size: 13px; color: var(--text); line-height: 1.6; }
 
   .modes-table { width: 100%; border-collapse: collapse; font-size: 13px; }
   .modes-table th, .modes-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
   .modes-table th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
   .modes-table td:first-child { font-weight: 600; color: var(--brown); white-space: nowrap; }
 
-  .faq-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-item summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--green-dark); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: '+'; color: var(--brown); font-size: 18px; line-height: 1; }
-  .faq-item[open] summary::after { content: '−'; }
-  .faq-item .faq-body { margin-top: 10px; font-size: 13px; color: var(--text); line-height: 1.6; }
+  /* Связаться */
+  .contacts-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
+  .contacts-block h3 { margin: 0 0 16px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
+  .contacts-block .contact-row { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; margin-bottom: 10px; }
+  .contacts-block .contact-row strong { color: var(--brown); font-weight: 600; }
+  .contacts-block a { color: var(--green); text-decoration: none; font-weight: 500; }
+  .contacts-block a:hover { text-decoration: underline; }
+  .contacts-block .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
 
-  .promo-banner { background: linear-gradient(135deg, #fff 0%, #fdfbf7 100%); border: 1px dashed var(--sand); border-radius: 12px; padding: 24px; text-align: center; margin: 16px 0; }
-  .promo-banner h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 18px; }
-  .promo-banner p { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
-  .btn-promo { display: inline-block; padding: 10px 24px; background: var(--green-dark); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: 0.2s; }
-  .btn-promo:hover { background: var(--green); }
-
-  .clients-requests { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .clients-requests th, .clients-requests td { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
-  .clients-requests th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
-  .clients-requests td:first-child { font-weight: 500; color: var(--brown); width: 40%; }
-
-  .trust-strip { max-width: 1100px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 13px; color: var(--green-dark); font-weight: 500; }
+  .trust-strip { max-width: 1100px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 13px; color: var(--green-dark); font-weight: 500; }
   .trust-strip span { display: inline-flex; align-items: center; gap: 6px; }
   .trust-strip .dot { color: var(--green); font-weight: 700; }
 
@@ -124,19 +177,23 @@
   .disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 20px; line-height: 1.6; }
 
   @media (max-width: 1000px) {
-    .hero { grid-template-columns: 1fr; padding: 28px 20px; }
-    .hero h2 { font-size: 26px; }
-    .for-who-grid, .included-groups { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+    .hero h2 { font-size: 28px; }
+    .for-who-grid, .included-groups, .reviews-grid, .what-if-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .mini-calc-fields { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
-    body { padding: 0 10px 40px; }
-    .brand-text h1 { font-size: 18px; }
-    .info-block { padding: 16px; }
+    body { padding: 0 12px 40px; }
+    .brand-text h1 { font-size: 20px; }
+    .header-phone a { font-size: 18px; }
+    .info-block, .mini-calc, .contacts-block { padding: 20px; }
+    .for-who-grid, .included-groups, .reviews-grid, .what-if-grid, .steps { grid-template-columns: 1fr; }
+    .mini-calc-fields { grid-template-columns: 1fr; }
     .modes-table { font-size: 12px; }
     .modes-table th, .modes-table td { padding: 8px; }
     .modes-table td:first-child { white-space: normal; }
-    .clients-requests { font-size: 12px; }
-    .clients-requests th, .clients-requests td { padding: 8px; }
+    .site-header { flex-direction: column; align-items: flex-start; }
+    .header-right { width: 100%; justify-content: space-between; }
   }
 </style>
 </head>
@@ -146,30 +203,35 @@
       <div class="logo-fallback">Б</div>
       <div class="brand-text"><h1>БИЗНЕС-Н</h1><p>Бухгалтерия без штрафов и головной боли</p></div>
     </div>
-    <nav class="site-nav">
-      <a href="index.html">Главная</a>
-      <a href="uslugi.html">Услуги</a>
-      <a href="stoimost.html">Стоимость</a>
-    </nav>
+    <div class="header-right">
+      <nav class="site-nav">
+        <a href="index.html">Главная</a>
+        <a href="uslugi.html">Услуги</a>
+        <a href="stoimost.html">Стоимость</a>
+      </nav>
+      <div class="header-phone">
+        <a href="tel:+79242303010">+7 924 230 30 10</a>
+      </div>
+    </div>
   </header>
 
   <div class="trust-strip">
     <span><span class="dot">✅</span> Более 50 клиентов</span>
     <span><span class="dot">✅</span> Более 10 млн ₽ сэкономлено</span>
     <span><span class="dot">✅</span> Работаем с 2024 года</span>
+    <span><span class="dot">✅</span> Работаем удалённо по всей России</span>
   </div>
 
   <div class="container">
     <div class="hero">
       <div>
         <h2>Бухгалтерия, за которую отвечаем результатом</h2>
-        <p>Ведём учёт для ИП и ООО по всей России. Сдаём в срок, без штрафов. Считаем налоги, зарплату и отчётность — Вы занимаетесь бизнесом.</p>
+        <p class="sub">Ведём учёт для ИП и ООО по всей России. Сдаём в срок, без штрафов. Считаем налоги, зарплату и отчётность — Вы занимаетесь бизнесом.</p>
+        <div class="usp">Рассчитайте стоимость за 2 минуты — бесплатно, без звонка</div>
         <div class="cta-row">
           <a href="stoimost.html" class="btn-primary">Рассчитать стоимость</a>
           <a href="tel:+79242303010" class="btn-secondary">Позвонить</a>
-          <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-jSI?utm_source=calc&utm_medium=button&utm_campaign=lead" target="_blank" rel="noopener" class="btn-secondary">Написать в Макс</a>
         </div>
-        <div class="cta-hint">Бесплатно, 2 минуты, без звонка</div>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="num">50+</div><div class="lbl">клиентов на обслуживании</div></div>
@@ -178,9 +240,43 @@
       </div>
     </div>
 
+    <!-- Мини-калькулятор: цена сразу при изменении -->
+    <div class="mini-calc" id="calc">
+      <h3>Посчитайте стоимость за 2 минуты</h3>
+      <p class="mini-sub">Базовый расчёт. Точную цену — с документами, кассами и доп. услугами — покажем на странице «Стоимость».</p>
+      <div class="mini-calc-fields">
+        <div class="mini-calc-field">
+          <label>Форма</label>
+          <select id="miniOrg">
+            <option value="ip">ИП</option>
+            <option value="ooo">ООО</option>
+          </select>
+        </div>
+        <div class="mini-calc-field">
+          <label>Режим</label>
+          <select id="miniMode">
+            <option value="usn6">УСН 6% (Доходы)</option>
+            <option value="usn15">УСН 15% (Доходы − Расходы)</option>
+            <option value="ausn8">АУСН 8%</option>
+            <option value="ausn20">АУСН 20%</option>
+            <option value="general">Общий режим</option>
+          </select>
+        </div>
+        <div class="mini-calc-field">
+          <label>Сотрудников</label>
+          <input type="number" id="miniEmployees" min="0" max="200" value="0" />
+        </div>
+      </div>
+      <div class="mini-calc-result">
+        <div class="res-text">Ваша цена: <strong id="miniCalcPrice">от 6 000 ₽/мес</strong></div>
+        <a href="stoimost.html" id="miniCalcLink">Точный расчёт →</a>
+      </div>
+    </div>
+
     <div class="info-block">
       <h3>О компании «БИЗНЕС-Н»</h3>
-      <p style="font-size: 14px; margin: 0;">Мы — бухгалтерская компания из Уссурийска, работаем по всей России с 2024 года. Более 50 клиентов доверяют нам учёт. Работаем с ИП и ООО на УСН, АУСН, патенте и общем режиме. Помогаем пройти проверки и избежать доначислений.</p>
+      <p style="font-size: 15px; margin: 0 0 10px;">Бухгалтерская компания из Уссурийска. Работаем с 2024 года, обслуживаем ИП и ООО по всей России. Команда из 3 бухгалтеров, средний срок сдачи отчётности — за 3 дня до дедлайна. Помогаем пройти проверки и избежать доначислений.</p>
+      <p style="font-size: 14px; margin: 0; color: var(--muted);">Офис в Уссурийске — для тех, кто рядом. Для остальных — удалённо, документы через ЭДО.</p>
     </div>
 
     <div class="info-block">
@@ -189,12 +285,17 @@
         <div class="for-who-item"><strong>ИП на услугах</strong>УСН 6% или патент, без сотрудников или с небольшой командой.</div>
         <div class="for-who-item"><strong>ИП и ООО на маркетплейсах</strong>Учёт продаж, комиссий, логистики и НДС.</div>
         <div class="for-who-item"><strong>ООО на УСН с сотрудниками</strong>Зарплата, кадры, отчётность в ФНС и СФР.</div>
-        <div class="for-who-item"><strong>ИП на патенте</strong>Совмещение с УСН, несколько патентов.</div>
         <div class="for-who-item"><strong>Нулевая отчётность</strong>Бизнес на паузе: нет продаж и движений по счетам.</div>
-        <div class="for-who-item"><strong>ПВЗ и торговля</strong>Кассы, эквайринг, наличные расчёты.</div>
-        <div class="for-who-item"><strong>Строительство (ООО на УСН)</strong>Отдельный тариф с учётом специфики отрасли.</div>
-        <div class="for-who-item"><strong>Проверка учёта (Главбух)</strong>Для тех, у кого уже есть бухгалтер — взгляд со стороны.</div>
       </div>
+      <details class="more-details">
+        <summary>Ещё: патент, ПВЗ, строительство, Главбух</summary>
+        <div class="for-who-grid">
+          <div class="for-who-item"><strong>ИП на патенте</strong>Совмещение с УСН, несколько патентов.</div>
+          <div class="for-who-item"><strong>ПВЗ и торговля</strong>Кассы, эквайринг, наличные расчёты.</div>
+          <div class="for-who-item"><strong>Строительство (ООО на УСН)</strong>Отдельный тариф с учётом специфики отрасли.</div>
+          <div class="for-who-item"><strong>Проверка учёта (Главбух)</strong>Для тех, у кого уже есть бухгалтер — взгляд со стороны.</div>
+        </div>
+      </details>
     </div>
 
     <div class="info-block">
@@ -202,81 +303,77 @@
       <div class="price-range">
         <strong>ИП на УСН 6% — от 6 000 ₽/мес. ООО на УСН 6% — от 10 000 ₽/мес.</strong> Точная цена — в калькуляторе.
       </div>
+      <div class="not-included">
+        <strong>Всё включено, кроме:</strong> документы сверх 5 комплектов в месяц, дополнительные кассы и счета, сотрудники сверх тарифа, нестандартные услуги. Полный список — в калькуляторе, без скрытых доплат.
+      </div>
       <div class="included-groups">
         <div class="included-group">
           <h4>Учёт и отчётность</h4>
-          <ul>
-            <li>Ведение бухгалтерского и налогового учёта</li>
-            <li>Сдача отчётности в ФНС, СФР и Росстат в срок</li>
-            <li>Ответы на требования и запросы госорганов</li>
-          </ul>
+          <p>Ведение бухгалтерского и налогового учёта, сдача отчётности в ФНС, СФР и Росстат, ответы на требования госорганов.</p>
         </div>
         <div class="included-group">
           <h4>Зарплата и кадры</h4>
-          <ul>
-            <li>Расчёт зарплаты</li>
-            <li>Отчётность по сотрудникам</li>
-            <li>Консультации по налогам и учёту</li>
-          </ul>
+          <p>Расчёт зарплаты, отчётность по сотрудникам, консультации по налогам и учёту.</p>
         </div>
         <div class="included-group">
           <h4>Документы и ЭДО</h4>
-          <ul>
-            <li>Приём документов: сканы на почту или по ЭДО</li>
-            <li>Поддержка по ЭДО и работе с контрагентами</li>
-          </ul>
+          <p>Приём документов: сканы на почту или по ЭДО, поддержка по ЭДО и работе с контрагентами.</p>
         </div>
         <div class="included-group">
           <h4>Нулевая отчётность</h4>
-          <ul>
-            <li>Для ИП и ООО на паузе — от 5 000 ₽</li>
-          </ul>
+          <p>Для ИП и ООО на паузе — от 5 000 ₽. Сдача нулевых деклараций, отчётность в ФНС и СФР.</p>
         </div>
       </div>
     </div>
 
     <div class="info-block">
-      <h3>Почему аутсорсинг выгоднее штата</h3>
-      <ul>
-        <li><strong>Дешевле.</strong> Штатный бухгалтер — от 60 000 ₽/мес плюс налоги и рабочее место. У нас — от 6 000 ₽/мес, без скрытых расходов.</li>
-        <li><strong>Безопаснее.</strong> Команда, а не один человек: отпуск, больничный и увольнение не останавливают учёт.</li>
-        <li><strong>Ответственнее.</strong> Сдаём в срок, без штрафов. Отвечаем за результат по договору.</li>
-      </ul>
+      <h3>Как начать работать</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><strong>Заявка</strong>Позвоните, напишите в Макс или оставьте заявку на сайте.</div>
+        <div class="step"><div class="step-num">2</div><strong>Консультация</strong>Обсудим задачи, подберём тариф, ответим на вопросы. Бесплатно.</div>
+        <div class="step"><div class="step-num">3</div><strong>Договор и передача</strong>Подпишем договор, поможем с передачей документов. Нужны: доступ к базе или среднее количество операций, реквизиты. Остальное подскажем.</div>
+        <div class="step"><div class="step-num">4</div><strong>Работа</strong>Ведём учёт, сдаём отчётность, отвечаем на требования. Вы занимаетесь бизнесом.</div>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <strong>Гарантия.</strong> Сдаём отчётность в срок. Отвечаем на требования ФНС. Помогаем пройти проверку без доначислений. Если ошибка возникнет по нашей вине — исправим в течение 3 рабочих дней и компенсируем штраф.
     </div>
 
     <div class="info-block">
-      <h3>Когда штатный бухгалтер всё же нужен</h3>
-      <p style="font-size: 14px; margin: 0 0 12px;">Аутсорсинг подходит не всем — и мы говорим об этом прямо. Вот 3 случая, когда штатный специалист будет правильным выбором:</p>
-      <ul>
-        <li><strong>Огромный документооборот в офисе.</strong> Сотни бумажных документов ежедневно, нужен человек рядом.</li>
-        <li><strong>Ежедневная операционка с логистикой.</strong> Много срочных платежей и отгрузок в течение дня.</li>
-        <li><strong>Строгая коммерческая тайна.</strong> Данные нельзя передавать на сторону даже по защищённым каналам.</li>
-      </ul>
-      <p style="font-size: 14px; margin: 12px 0 0;"><strong>Если ничего из этого не про Ваш бизнес — аутсорсинг сэкономит бюджет и снимет риски без потери качества учёта.</strong></p>
-    </div>
-
-    <div class="info-block" style="border-left: 4px solid var(--green);">
-      <h3>Гарантия</h3>
-      <p style="font-size: 14px; margin: 0;"><strong>Сдаём отчётность в срок. Отвечаем на требования ФНС. Помогаем пройти проверку без доначислений.</strong> Если ошибка возникнет по нашей вине — исправим за свой счёт и компенсируем штраф.</p>
-    </div>
-
-    <div class="info-block">
-      <h3>Запросы, с которыми приходят клиенты</h3>
-      <p style="font-size: 14px; margin: 0 0 12px;">Самые частые ситуации — и как мы их решаем.</p>
-      <table class="clients-requests">
-        <thead><tr><th>Запрос клиента</th><th>Как мы решаем</th></tr></thead>
-        <tbody>
-          <tr><td>Проверить, не занижена ли налоговая база и верно ли выбран режим — особенно после перехода на НДС</td><td>Регулярно сверяем базу, подбираем актуальный режим, сопровождаем переход на НДС под ключ.</td></tr>
-          <tr><td>Убедиться, что структура бизнеса не похожа на искусственное дробление</td><td>Изучаем структуру, находим риски признаков дробления и предлагаем, как их снять.</td></tr>
-          <tr><td>Понять, не превратится ли договор с самозанятым или ГПХ в трудовой</td><td>Проверяем характер отношений с исполнителями и переквалификационные риски.</td></tr>
-          <tr><td>Разобраться с учётом на маркетплейсах</td><td>Помогаем с документами, выручкой, комиссиями, логистикой и выбором режима — без ошибок в отчётности.</td></tr>
-        </tbody>
-      </table>
-      <p style="font-size: 13px; margin: 12px 0 0;"><a href="uslugi.html">Смотреть все запросы →</a></p>
+      <h3>Что будет, если…</h3>
+      <div class="what-if-grid">
+        <div class="what-if-item">
+          <span class="q">…забуду передать документы?</span>
+          <span class="a">Напомним заранее. Пришлите сканы на почту или по ЭДО — этого достаточно.</span>
+        </div>
+        <div class="what-if-item">
+          <span class="q">…придёт требование из ФНС?</span>
+          <span class="a">Изучим, подготовим ответ и отправим в установленный срок. Если нужны документы — запросим у вас.</span>
+        </div>
+        <div class="what-if-item">
+          <span class="q">…уеду в отпуск?</span>
+          <span class="a">Учёт не остановится: за вами закреплён бухгалтер, а за ним — команда.</span>
+        </div>
+        <div class="what-if-item">
+          <span class="q">…заблокируют счёт по 115-ФЗ?</span>
+          <span class="a">Изучим запрос банка, соберём подтверждающие документы, напишем пояснения и ответим на допзапросы.</span>
+        </div>
+      </div>
     </div>
 
     <div class="info-block">
-      <h3>Не знаете, какой режим выбрать?</h3>
+      <h3>Отзывы клиентов</h3>
+      <!-- TODO: заменить на реальные отзывы -->
+      <div class="reviews-grid">
+        <div class="review-card"><div class="quote">«Перешли от другого бухгалтера — за полгода ни одного штрафа и ни одного пропущенного срока».</div><div class="author">Имя Фамилия</div><div class="role">ИП, услуги</div></div>
+        <div class="review-card"><div class="quote">«С маркетплейсом было страшно: НДС, отчёты, чеки. Всё взяли на себя, мы просто продаём».</div><div class="author">Имя Фамилия</div><div class="role">ООО, маркетплейс</div></div>
+        <div class="review-card"><div class="quote">«Проверили учёт перед сделкой, нашли ошибки прошлого бухгалтера. Сэкономили больше, чем стоил аудит».</div><div class="author">Имя Фамилия</div><div class="role">ООО, производство</div></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Какой режим выбрать</h3>
       <table class="modes-table">
         <thead><tr><th>Режим</th><th>Кому подходит</th><th>Плюсы</th><th>Минусы</th></tr></thead>
         <tbody>
@@ -292,23 +389,63 @@
     <div class="info-block">
       <h3>Частые вопросы</h3>
       <details class="faq-item"><summary>Что входит в тариф?</summary><div class="faq-body">Ведение учёта, расчёт зарплаты, сдача отчётности в ФНС, СФР и Росстат, ответы на требования госорганов, консультации по налогам и учёту, поддержка по ЭДО. Базовый тариф — от 6 000 ₽/мес.</div></details>
+      <details class="faq-item"><summary>Сколько стоит переход от другого бухгалтера?</summary><div class="faq-body">Передача документов — бесплатно. Если нужен аудит прошлого учёта или восстановление — оценим отдельно на консультации.</div></details>
       <details class="faq-item"><summary>Можно ли перейти от другого бухгалтера?</summary><div class="faq-body">Да, поможем с передачей документов и баз. Объём работ по восстановлению учёта оцениваем отдельно — если он нужен, обсудим на консультации.</div></details>
       <details class="faq-item"><summary>Как передаются документы?</summary><div class="faq-body">Сканы на электронную почту или по ЭДО. Если у Вас ещё нет ЭДО — поможем подключить и настроить.</div></details>
-      <details class="faq-item"><summary>Что если ошибка?</summary><div class="faq-body">Если ошибка возникнет по нашей вине — исправим за свой счёт и компенсируем штраф.</div></details>
-      <details class="faq-item"><summary>Работаете ли с другими регионами?</summary><div class="faq-body">Да, работаем по всей России. Документы — через ЭДО или по электронной почте, связь — по телефону, почте или в Макс.</div></details>
+      <details class="faq-item"><summary>Что если ошибка?</summary><div class="faq-body">Если ошибка возникнет по нашей вине — исправим в течение 3 рабочих дней и компенсируем штраф.</div></details>
+      <details class="faq-item"><summary>Работаете ли с другими регионами?</summary><div class="faq-body">Да, работаем по всей России удалённо. Документы — через ЭДО или по электронной почте, связь — по телефону, почте или в Макс.</div></details>
       <details class="faq-item"><summary>Как быстро вы отвечаете?</summary><div class="faq-body">По расчёту и обратному звонку — в течение 2 часов в рабочее время. По клиентам на обслуживании — в течение рабочего дня. Если вопрос срочный — позвоните, ответим быстрее.</div></details>
-      <details class="faq-item"><summary>Что такое ЕАЭС и как считается?</summary><div class="faq-body">Отчётность ЕАЭС — для тех, кто работает с импортом/экспортом в странах ЕАЭС. До 100 наименований — 10 000 ₽. Свыше 100 — плюс 100 ₽ за каждое наименование.</div></details>
     </div>
 
-    <div class="promo-banner">
-      <h3>Не уверены, какой тариф выбрать?</h3>
-      <p>Наши бухгалтеры бесплатно проконсультируют и подберут оптимальное решение для Вашего бизнеса.</p>
-      <a href="stoimost.html" class="btn-promo">Перейти к калькулятору</a>
+    <div class="contacts-block">
+      <h3>Связаться с нами</h3>
+      <div class="contact-row"><strong>Телефон:</strong> <a href="tel:+79242303010">+7 924 230 30 10</a></div>
+      <div class="contact-row"><strong>Почта:</strong> <a href="mailto:buh@biznes-n.ru">buh@biznes-n.ru</a></div>
+      <div class="contact-row"><strong>Макс:</strong> <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-jSI" target="_blank" rel="noopener">Написать в Макс</a></div>
+      <div class="contact-row"><strong>График:</strong> Пн–Пт, 9:00–17:00</div>
+      <div class="note">Не дозвонились? Напишите в Макс — ответим.</div>
     </div>
   </div>
 
   <footer class="site-footer">
     <p class="disclaimer">ООО "БИЗНЕС-Н" · ИНН 2511129350 · Уссурийск, ул. Некрасова, д. 74, оф. 1 · Работаем по всей России</p>
   </footer>
+
+<script>
+  // Мини-калькулятор: цена сразу при изменении
+  const MINI_PRICES = {
+    usn6_ip: 6000, usn6_ooo: 10000,
+    usn15_ip: 10000, usn15_ooo: 15000,
+    ausn8_ip: 6000, ausn8_ooo: 10000,
+    ausn20_ip: 10000, ausn20_ooo: 15000,
+    general_ooo: 40000
+  };
+
+  function updateMiniCalc() {
+    const org = document.getElementById('miniOrg').value;
+    const mode = document.getElementById('miniMode').value;
+    const employees = parseInt(document.getElementById('miniEmployees').value) || 0;
+    let price = MINI_PRICES[mode + '_' + org] || MINI_PRICES['usn6_' + org];
+    const staffPrice = employees * 2000;
+    price += staffPrice;
+    document.getElementById('miniCalcPrice').textContent = 'от ' + Math.round(price).toLocaleString('ru-RU') + ' ₽/мес';
+    document.getElementById('miniCalcLink').href = 'stoimost.html?org=' + encodeURIComponent(org) + '&mode=' + encodeURIComponent(mode) + '&employees=' + encodeURIComponent(employees);
+  }
+
+  // Переключение режимов
+  const miniOrg = document.getElementById('miniOrg');
+  const miniMode = document.getElementById('miniMode');
+  function updateMiniModes() {
+    const isOoo = miniOrg.value === 'ooo';
+    const generalOption = miniMode.querySelector('option[value="general"]');
+    if (generalOption) generalOption.hidden = !isOoo;
+    if (!isOoo && miniMode.value === 'general') miniMode.value = 'usn6';
+    updateMiniCalc();
+  }
+  miniOrg.addEventListener('change', updateMiniModes);
+  miniMode.addEventListener('change', updateMiniCalc);
+  document.getElementById('miniEmployees').addEventListener('input', updateMiniCalc);
+  updateMiniModes();
+</script>
 </body>
 </html>
