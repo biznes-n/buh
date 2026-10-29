@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>БИЗНЕС-Н — бухгалтерия для ИП и ООО без штрафов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #153524; --green: #1f4a33; --green-light: #eaf2ed;
+    --brown: #5c452f; --sand: #d9b36c; --sand-hover: #c9a15a;
+    --bg: #f5f2eb; --card: #ffffff; --text: #2b2b2b; --muted: #8c8c8c;
+    --border: #e8e3d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0; padding: 0 16px 40px; background: var(--bg); color: var(--text);
+    line-height: 1.5; scroll-behavior: smooth;
+  }
+  a { color: var(--green); }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; max-width: 1100px; margin: 0 auto; padding: 16px 0;
+    flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo-fallback {
+    width: 40px; height: 40px; border-radius: 8px; background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--sand); font-weight: 800; font-size: 20px;
+  }
+  .brand-text h1 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
+  .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
+  .site-nav a:hover { color: var(--green); }
+
+  .hero {
+    background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%);
+    border-radius: 16px; padding: 40px 32px; color: #fff;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center;
+    box-shadow: 0 12px 32px rgba(15,40,26,0.2);
+    margin-bottom: 24px;
+  }
+  .hero h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
+  .hero p { margin: 0 0 18px; font-size: 16px; color: rgba(255,255,255,0.85); }
+  .hero .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 16px 28px; background: var(--sand); color: var(--green-dark);
+    text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 16px;
+    transition: 0.2s; border: 1px solid #f0e2cc;
+    box-shadow: 0 4px 12px rgba(217,179,108,0.2);
+  }
+  .btn-primary:hover { background: var(--sand-hover); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 24px; background: rgba(255,255,255,0.1); color: #fff;
+    text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.25); transition: 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+  .cta-hint { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 10px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .hero-stat {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .hero-stat .num { font-size: 24px; font-weight: 800; color: var(--sand); line-height: 1; }
+  .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(92,69,47,0.03); }
+  .info-block h3 { margin: 0 0 14px; font-size: 17px; color: var(--green-dark); }
+  .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .info-block li { margin-bottom: 8px; }
+
+  .price-range { background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 8px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .price-range strong { color: var(--green-dark); }
+
+  .included-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .included-group { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .included-group h4 { margin: 0 0 8px; font-size: 13px; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.3px; }
+  .included-group ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .included-group li { margin-bottom: 6px; }
+
+  .for-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .for-who-item { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; }
+  .for-who-item strong { display: block; color: var(--green-dark); margin-bottom: 4px; font-size: 14px; }
+
+  .modes-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .modes-table th, .modes-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .modes-table th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
+  .modes-table td:first-child { font-weight: 600; color: var(--brown); white-space: nowrap; }
+
+  .faq-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--green-dark); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; color: var(--brown); font-size: 18px; line-height: 1; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item .faq-body { margin-top: 10px; font-size: 13px; color: var(--text); line-height: 1.6; }
+
+  .promo-banner { background: linear-gradient(135deg, #fff 0%, #fdfbf7 100%); border: 1px dashed var(--sand); border-radius: 12px; padding: 24px; text-align: center; margin: 16px 0; }
+  .promo-banner h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 18px; }
+  .promo-banner p { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+  .btn-promo { display: inline-block; padding: 10px 24px; background: var(--green-dark); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: 0.2s; }
+  .btn-promo:hover { background: var(--green); }
+
+  .clients-requests { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .clients-requests th, .clients-requests td { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .clients-requests th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
+  .clients-requests td:first-child { font-weight: 500; color: var(--brown); width: 40%; }
+
+  .trust-strip { max-width: 1100px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 13px; color: var(--green-dark); font-weight: 500; }
+  .trust-strip span { display: inline-flex; align-items: center; gap: 6px; }
+  .trust-strip .dot { color: var(--green); font-weight: 700; }
+
+  .site-footer { max-width: 1100px; margin: 24px auto 0; text-align: center; padding-bottom: 20px; }
+  .disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 20px; line-height: 1.6; }
+
+  @media (max-width: 1000px) {
+    .hero { grid-template-columns: 1fr; padding: 28px 20px; }
+    .hero h2 { font-size: 26px; }
+    .for-who-grid, .included-groups { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 0 10px 40px; }
+    .brand-text h1 { font-size: 18px; }
+    .info-block { padding: 16px; }
+    .modes-table { font-size: 12px; }
+    .modes-table th, .modes-table td { padding: 8px; }
+    .modes-table td:first-child { white-space: normal; }
+    .clients-requests { font-size: 12px; }
+    .clients-requests th, .clients-requests td { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-fallback">Б</div>
+      <div class="brand-text"><h1>БИЗНЕС-Н</h1><p>Бухгалтерия без штрафов и головной боли</p></div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html">Главная</a>
+      <a href="uslugi.html">Услуги</a>
+      <a href="stoimost.html">Стоимость</a>
+    </nav>
+  </header>
+
+  <div class="trust-strip">
+    <span><span class="dot">✅</span> Более 50 клиентов</span>
+    <span><span class="dot">✅</span> Более 10 млн ₽ сэкономлено</span>
+    <span><span class="dot">✅</span> Работаем с 2024 года</span>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <div>
+        <h2>Бухгалтерия, за которую отвечаем результатом</h2>
+        <p>Ведём учёт для ИП и ООО по всей России. Сдаём в срок, без штрафов. Считаем налоги, зарплату и отчётность — Вы занимаетесь бизнесом.</p>
+        <div class="cta-row">
+          <a href="stoimost.html" class="btn-primary">Рассчитать стоимость</a>
+          <a href="tel:+79242303010" class="btn-secondary">Позвонить</a>
+          <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-jSI?utm_source=calc&utm_medium=button&utm_campaign=lead" target="_blank" rel="noopener" class="btn-secondary">Написать в Макс</a>
+        </div>
+        <div class="cta-hint">Бесплатно, 2 минуты, без звонка</div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">50+</div><div class="lbl">клиентов на обслуживании</div></div>
+        <div class="hero-stat"><div class="num">10 млн ₽</div><div class="lbl">сэкономлено клиентам</div></div>
+        <div class="hero-stat"><div class="num">2024</div><div class="lbl">год основания</div></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>О компании «БИЗНЕС-Н»</h3>
+      <p style="font-size: 14px; margin: 0;">Мы — бухгалтерская компания из Уссурийска, работаем по всей России с 2024 года. Более 50 клиентов доверяют нам учёт. Работаем с ИП и ООО на УСН, АУСН, патенте и общем режиме. Помогаем пройти проверки и избежать доначислений.</p>
+    </div>
+
+    <div class="info-block">
+      <h3>Кому подходит</h3>
+      <div class="for-who-grid">
+        <div class="for-who-item"><strong>ИП на услугах</strong>УСН 6% или патент, без сотрудников или с небольшой командой.</div>
+        <div class="for-who-item"><strong>ИП и ООО на маркетплейсах</strong>Учёт продаж, комиссий, логистики и НДС.</div>
+        <div class="for-who-item"><strong>ООО на УСН с сотрудниками</strong>Зарплата, кадры, отчётность в ФНС и СФР.</div>
+        <div class="for-who-item"><strong>ИП на патенте</strong>Совмещение с УСН, несколько патентов.</div>
+        <div class="for-who-item"><strong>Нулевая отчётность</strong>Бизнес на паузе: нет продаж и движений по счетам.</div>
+        <div class="for-who-item"><strong>ПВЗ и торговля</strong>Кассы, эквайринг, наличные расчёты.</div>
+        <div class="for-who-item"><strong>Строительство (ООО на УСН)</strong>Отдельный тариф с учётом специфики отрасли.</div>
+        <div class="for-who-item"><strong>Проверка учёта (Главбух)</strong>Для тех, у кого уже есть бухгалтер — взгляд со стороны.</div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Что входит в обслуживание</h3>
+      <div class="price-range">
+        <strong>ИП на УСН 6% — от 6 000 ₽/мес. ООО на УСН 6% — от 10 000 ₽/мес.</strong> Точная цена — в калькуляторе.
+      </div>
+      <div class="included-groups">
+        <div class="included-group">
+          <h4>Учёт и отчётность</h4>
+          <ul>
+            <li>Ведение бухгалтерского и налогового учёта</li>
+            <li>Сдача отчётности в ФНС, СФР и Росстат в срок</li>
+            <li>Ответы на требования и запросы госорганов</li>
+          </ul>
+        </div>
+        <div class="included-group">
+          <h4>Зарплата и кадры</h4>
+          <ul>
+            <li>Расчёт зарплаты</li>
+            <li>Отчётность по сотрудникам</li>
+            <li>Консультации по налогам и учёту</li>
+          </ul>
+        </div>
+        <div class="included-group">
+          <h4>Документы и ЭДО</h4>
+          <ul>
+            <li>Приём документов: сканы на почту или по ЭДО</li>
+            <li>Поддержка по ЭДО и работе с контрагентами</li>
+          </ul>
+        </div>
+        <div class="included-group">
+          <h4>Нулевая отчётность</h4>
+          <ul>
+            <li>Для ИП и ООО на паузе — от 5 000 ₽</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Почему аутсорсинг выгоднее штата</h3>
+      <ul>
+        <li><strong>Дешевле.</strong> Штатный бухгалтер — от 60 000 ₽/мес плюс налоги и рабочее место. У нас — от 6 000 ₽/мес, без скрытых расходов.</li>
+        <li><strong>Безопаснее.</strong> Команда, а не один человек: отпуск, больничный и увольнение не останавливают учёт.</li>
+        <li><strong>Ответственнее.</strong> Сдаём в срок, без штрафов. Отвечаем за результат по договору.</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h3>Когда штатный бухгалтер всё же нужен</h3>
+      <p style="font-size: 14px; margin: 0 0 12px;">Аутсорсинг подходит не всем — и мы говорим об этом прямо. Вот 3 случая, когда штатный специалист будет правильным выбором:</p>
+      <ul>
+        <li><strong>Огромный документооборот в офисе.</strong> Сотни бумажных документов ежедневно, нужен человек рядом.</li>
+        <li><strong>Ежедневная операционка с логистикой.</strong> Много срочных платежей и отгрузок в течение дня.</li>
+        <li><strong>Строгая коммерческая тайна.</strong> Данные нельзя передавать на сторону даже по защищённым каналам.</li>
+      </ul>
+      <p style="font-size: 14px; margin: 12px 0 0;"><strong>Если ничего из этого не про Ваш бизнес — аутсорсинг сэкономит бюджет и снимет риски без потери качества учёта.</strong></p>
+    </div>
+
+    <div class="info-block" style="border-left: 4px solid var(--green);">
+      <h3>Гарантия</h3>
+      <p style="font-size: 14px; margin: 0;"><strong>Сдаём отчётность в срок. Отвечаем на требования ФНС. Помогаем пройти проверку без доначислений.</strong> Если ошибка возникнет по нашей вине — исправим за свой счёт и компенсируем штраф.</p>
+    </div>
+
+    <div class="info-block">
+      <h3>Запросы, с которыми приходят клиенты</h3>
+      <p style="font-size: 14px; margin: 0 0 12px;">Самые частые ситуации — и как мы их решаем.</p>
+      <table class="clients-requests">
+        <thead><tr><th>Запрос клиента</th><th>Как мы решаем</th></tr></thead>
+        <tbody>
+          <tr><td>Проверить, не занижена ли налоговая база и верно ли выбран режим — особенно после перехода на НДС</td><td>Регулярно сверяем базу, подбираем актуальный режим, сопровождаем переход на НДС под ключ.</td></tr>
+          <tr><td>Убедиться, что структура бизнеса не похожа на искусственное дробление</td><td>Изучаем структуру, находим риски признаков дробления и предлагаем, как их снять.</td></tr>
+          <tr><td>Понять, не превратится ли договор с самозанятым или ГПХ в трудовой</td><td>Проверяем характер отношений с исполнителями и переквалификационные риски.</td></tr>
+          <tr><td>Разобраться с учётом на маркетплейсах</td><td>Помогаем с документами, выручкой, комиссиями, логистикой и выбором режима — без ошибок в отчётности.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 13px; margin: 12px 0 0;"><a href="uslugi.html">Смотреть все запросы →</a></p>
+    </div>
+
+    <div class="info-block">
+      <h3>Не знаете, какой режим выбрать?</h3>
+      <table class="modes-table">
+        <thead><tr><th>Режим</th><th>Кому подходит</th><th>Плюсы</th><th>Минусы</th></tr></thead>
+        <tbody>
+          <tr><td>УСН 6% (Доходы)</td><td>Услуги, торговля с небольшой долей расходов</td><td>Простой учёт, минимум документов</td><td>Налог со всей выручки</td></tr>
+          <tr><td>УСН 15% (Доходы − Расходы)</td><td>Торговля, производство, строительство с большими расходами</td><td>Налог с разницы, можно учесть расходы</td><td>Нужны входящие документы, сложнее учёт</td></tr>
+          <tr><td>АУСН 8% / 20%</td><td>Микро- и малый бизнес до 60 млн ₽ и 5 сотрудников</td><td>Без страховых взносов, минимум отчётности</td><td>Ограничения по масштабу, не во всех регионах</td></tr>
+          <tr><td>Патент</td><td>ИП на услугах, рознице, общепите</td><td>Фиксированная стоимость, минимум отчётности</td><td>Только для ИП, ограничения по видам деятельности</td></tr>
+          <tr><td>Общий режим</td><td>Крупные компании с НДС и сложным учётом</td><td>Полный учёт, работа с НДС</td><td>Сложнее и дороже, нужен опытный бухгалтер</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-block">
+      <h3>Частые вопросы</h3>
+      <details class="faq-item"><summary>Что входит в тариф?</summary><div class="faq-body">Ведение учёта, расчёт зарплаты, сдача отчётности в ФНС, СФР и Росстат, ответы на требования госорганов, консультации по налогам и учёту, поддержка по ЭДО. Базовый тариф — от 6 000 ₽/мес.</div></details>
+      <details class="faq-item"><summary>Можно ли перейти от другого бухгалтера?</summary><div class="faq-body">Да, поможем с передачей документов и баз. Объём работ по восстановлению учёта оцениваем отдельно — если он нужен, обсудим на консультации.</div></details>
+      <details class="faq-item"><summary>Как передаются документы?</summary><div class="faq-body">Сканы на электронную почту или по ЭДО. Если у Вас ещё нет ЭДО — поможем подключить и настроить.</div></details>
+      <details class="faq-item"><summary>Что если ошибка?</summary><div class="faq-body">Если ошибка возникнет по нашей вине — исправим за свой счёт и компенсируем штраф.</div></details>
+      <details class="faq-item"><summary>Работаете ли с другими регионами?</summary><div class="faq-body">Да, работаем по всей России. Документы — через ЭДО или по электронной почте, связь — по телефону, почте или в Макс.</div></details>
+      <details class="faq-item"><summary>Как быстро вы отвечаете?</summary><div class="faq-body">По расчёту и обратному звонку — в течение 2 часов в рабочее время. По клиентам на обслуживании — в течение рабочего дня. Если вопрос срочный — позвоните, ответим быстрее.</div></details>
+      <details class="faq-item"><summary>Что такое ЕАЭС и как считается?</summary><div class="faq-body">Отчётность ЕАЭС — для тех, кто работает с импортом/экспортом в странах ЕАЭС. До 100 наименований — 10 000 ₽. Свыше 100 — плюс 100 ₽ за каждое наименование.</div></details>
+    </div>
+
+    <div class="promo-banner">
+      <h3>Не уверены, какой тариф выбрать?</h3>
+      <p>Наши бухгалтеры бесплатно проконсультируют и подберут оптимальное решение для Вашего бизнеса.</p>
+      <a href="stoimost.html" class="btn-promo">Перейти к калькулятору</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="disclaimer">ООО "БИЗНЕС-Н" · ИНН 2511129350 · Уссурийск, ул. Некрасова, д. 74, оф. 1 · Работаем по всей России</p>
+  </footer>
+</body>
+</html>

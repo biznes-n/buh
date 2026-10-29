@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Услуги — БИЗНЕС-Н</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --green-dark: #153524; --green: #1f4a33; --green-light: #eaf2ed; --brown: #5c452f; --sand: #d9b36c; --sand-hover: #c9a15a; --bg: #f5f2eb; --card: #ffffff; --text: #2b2b2b; --muted: #8c8c8c; --border: #e8e3d9; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0 16px 40px; background: var(--bg); color: var(--text); line-height: 1.5; }
+  a { color: var(--green); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1100px; margin: 0 auto; padding: 16px 0; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo-fallback { width: 40px; height: 40px; border-radius: 8px; background: var(--green); display: flex; align-items: center; justify-content: center; color: var(--sand); font-weight: 800; font-size: 20px; }
+  .brand-text h1 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
+  .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
+  .site-nav a:hover { color: var(--green); }
+  .page-hero { background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%); border-radius: 16px; padding: 40px 32px; color: #fff; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(15,40,26,0.2); }
+  .page-hero h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
+  .page-hero p { margin: 0; font-size: 16px; color: rgba(255,255,255,0.85); max-width: 720px; }
+  .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(92,69,47,0.03); }
+  .info-block h3 { margin: 0 0 14px; font-size: 17px; color: var(--green-dark); }
+  .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .info-block li { margin-bottom: 8px; }
+  .price-note { background: var(--green-light); border: 1px solid #d0e0d5; border-radius: 8px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; color: var(--green-dark); }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .service-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; font-size: 14px; line-height: 1.5; }
+  .service-card h4 { margin: 0 0 8px; font-size: 15px; color: var(--green-dark); }
+  .service-card p { margin: 0; color: var(--text); font-size: 13px; }
+  .clients-requests { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .clients-requests th, .clients-requests td { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .clients-requests th { background: var(--bg); font-weight: 600; color: var(--green-dark); font-size: 12px; }
+  .clients-requests td:first-child { font-weight: 500; color: var(--brown); width: 40%; }
+  .promo-banner { background: linear-gradient(135deg, #fff 0%, #fdfbf7 100%); border: 1px dashed var(--sand); border-radius: 12px; padding: 24px; text-align: center; margin: 16px 0; }
+  .promo-banner h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 18px; }
+  .promo-banner p { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+  .btn-promo { display: inline-block; padding: 10px 24px; background: var(--green-dark); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: 0.2s; }
+  .btn-promo:hover { background: var(--green); }
+  .site-footer { max-width: 1100px; margin: 24px auto 0; text-align: center; padding-bottom: 20px; }
+  .disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 20px; line-height: 1.6; }
+  @media (max-width: 1000px) { .page-hero { padding: 28px 20px; } .page-hero h2 { font-size: 26px; } }
+  @media (max-width: 600px) { body { padding: 0 10px 40px; } .services-grid { grid-template-columns: 1fr; } .brand-text h1 { font-size: 18px; } .info-block { padding: 16px; } .clients-requests { font-size: 12px; } .clients-requests th, .clients-requests td { padding: 8px; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-fallback">Б</div>
+      <div class="brand-text"><h1>БИЗНЕС-Н</h1><p>Бухгалтерия без штрафов и головной боли</p></div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html">Главная</a>
+      <a href="uslugi.html">Услуги</a>
+      <a href="stoimost.html">Стоимость</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="page-hero">
+      <h2>Услуги: учёт, налоги, зарплата, кадры</h2>
+      <p>Поможем с учётом, налогами, зарплатой и кадрами. Вместо одного штатного бухгалтера Вы получаете команду с ответственностью по договору.</p>
+    </div>
+
+    <div class="info-block">
+      <h3>Что мы делаем</h3>
+      <div class="price-note"><strong>ИП на УСН 6% — от 6 000 ₽/мес. ООО на УСН 6% — от 10 000 ₽/мес.</strong> Подробный расчёт — в калькуляторе.</div>
+      <div class="services-grid">
+        <div class="service-card"><h4>Комплексное ведение учёта</h4><p>Бухгалтерия ООО и ИП под ключ, включая нулевую отчётность для компаний без операций.</p></div>
+        <div class="service-card"><h4>Налоги и отчётность</h4><p>Расчёт налогов, сдача отчётности в срок, споры и переписка с налоговой инспекцией.</p></div>
+        <div class="service-card"><h4>Зарплата и кадры</h4><p>Расчёт заработной платы и кадровое делопроизводство.</p></div>
+        <div class="service-card"><h4>Восстановление учёта</h4><p>Приводим бухгалтерию в порядок после ошибок или пропусков за прошлые периоды.</p></div>
+        <div class="service-card"><h4>Консультации</h4><p>Оперативные ответы на вопросы по учёту, налогам и открытию расчётного счёта.</p></div>
+        <div class="service-card"><h4>Отраслевые решения</h4><p>Сопровождение ВЭД и учёт с поправкой на специфику отрасли. Регистрация бизнеса — по запросу.</p></div>
+        <div class="service-card"><h4>Нулевая отчётность</h4><p>Для компаний без операций: сдача нулевых деклараций, отчётность в ФНС и СФР.</p></div>
+        <div class="service-card"><h4>Проверка учёта (Главбух)</h4><p>Взгляд со стороны для контроля. Для тех, у кого уже есть бухгалтер.</p></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <h3>Запросы, с которыми приходят клиенты</h3>
+      <p style="font-size: 14px; margin: 0 0 12px;">Самые частые ситуации — и как мы их решаем.</p>
+      <table class="clients-requests">
+        <thead><tr><th>Запрос клиента</th><th>Как мы решаем</th></tr></thead>
+        <tbody>
+          <tr><td>Проверить, не занижена ли налоговая база и верно ли выбран режим — особенно после перехода на НДС</td><td>Регулярно сверяем базу, подбираем актуальный режим, сопровождаем переход на НДС под ключ.</td></tr>
+          <tr><td>Убедиться, что структура бизнеса не похожа на искусственное дробление</td><td>Изучаем структуру, находим риски признаков дробления и предлагаем, как их снять.</td></tr>
+          <tr><td>Понять, не превратится ли договор с самозанятым или ГПХ в трудовой</td><td>Проверяем характер отношений с исполнителями и переквалификационные риски.</td></tr>
+          <tr><td>Навести порядок в первичке и закрыть подотчётные суммы</td><td>Контролируем полноту документов и остатки по счёту 71 — ничего не «зависает» к проверке.</td></tr>
+          <tr><td>Сдать отчётность вовремя и без ошибок</td><td>Сдаём в срок. Проверяем цифры перед отправкой — без ошибок и доначислений.</td></tr>
+          <tr><td>Разобраться с учётом на маркетплейсах</td><td>Помогаем с документами, выручкой, комиссиями, логистикой и выбором режима — без ошибок в отчётности.</td></tr>
+          <tr><td>Проверить расчёт НДФЛ, взносов и вычетов по зарплате</td><td>Сверяем кадровые документы с начислениями, контролируем вычеты и соответствие МРОТ.</td></tr>
+          <tr><td>Уведомление от банка и блокировка счёта по 115-ФЗ</td><td>Изучаем запрос, собираем подтверждающие документы, пишем пояснения и отвечаем на допзапросы.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="promo-banner">
+      <h3>Хотите точную стоимость под Ваш бизнес?</h3>
+      <p>Соберите параметры в калькуляторе — расчёт сформируется сразу. Точную стоимость подтвердим на бесплатной консультации.</p>
+      <a href="stoimost.html" class="btn-promo">Перейти к калькулятору</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="disclaimer">ООО "БИЗНЕС-Н" · ИНН 2511129350 · Уссурийск, ул. Некрасова, д. 74, оф. 1 · Работаем по всей России</p>
+  </footer>
+</body>
+</html>
