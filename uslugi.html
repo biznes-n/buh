@@ -14,17 +14,17 @@
   a { color: var(--green); }
   .container { max-width: 1100px; margin: 0 auto; }
   .site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1100px; margin: 0 auto; padding: 18px 0; flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
   .brand:hover .brand-text h1 { color: var(--green); }
   .logo-fallback { width: 44px; height: 44px; border-radius: 8px; background: var(--green); display: flex; align-items: center; justify-content: center; color: var(--sand); font-weight: 800; font-size: 22px; }
   .brand-text h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; line-height: 1.2; transition: 0.2s; }
   .brand-text p { margin: 0; color: var(--brown); font-size: 12px; font-weight: 500; font-style: italic; }
-  .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-  .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
-  .site-nav a:hover { color: var(--green); }
   .header-right { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
   .header-phone a { font-size: 22px; font-weight: 800; color: var(--green-dark); text-decoration: none; letter-spacing: -0.3px; }
   .header-phone a:hover { color: var(--green); }
+  .site-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .site-nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 14px; transition: 0.2s; }
+  .site-nav a:hover { color: var(--green); }
 
   .page-hero { background: linear-gradient(160deg, var(--green-dark) 0%, #0f281a 100%); border-radius: 20px; padding: 40px 36px; color: #fff; margin-bottom: 24px; box-shadow: 0 12px 32px rgba(15,40,26,0.2); }
   .page-hero h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
@@ -56,7 +56,7 @@
   .site-footer { max-width: 1100px; margin: 24px auto 0; text-align: center; padding-bottom: 20px; }
   .disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 20px; line-height: 1.6; }
   @media (max-width: 1000px) { .page-hero { padding: 28px 20px; } .page-hero h2 { font-size: 26px; } }
-  @media (max-width: 600px) { body { padding: 0 10px 40px; } .services-grid { grid-template-columns: 1fr; } .brand-text h1 { font-size: 20px; } .header-phone a { font-size: 18px; } .info-block { padding: 20px; } .clients-requests { font-size: 12px; } .clients-requests th, .clients-requests td { padding: 8px; } }
+  @media (max-width: 600px) { body { padding: 0 10px 40px; } .services-grid { grid-template-columns: 1fr; } .brand-text h1 { font-size: 20px; } .header-phone a { font-size: 18px; } .info-block { padding: 20px; } .clients-requests { font-size: 12px; } .clients-requests th, .clients-requests td { padding: 8px; } .site-header { flex-direction: column; align-items: flex-start; } .header-right { width: 100%; justify-content: space-between; } }
 </style>
 </head>
 <body>
@@ -91,7 +91,7 @@
         <div class="service-card"><h4>Налоги и отчётность</h4><p>Расчёт налогов, сдача отчётности в срок, споры и переписка с налоговой инспекцией.</p></div>
         <div class="service-card"><h4>Зарплата и кадры</h4><p>Расчёт заработной платы и кадровое делопроизводство.</p></div>
         <div class="service-card"><h4>Восстановление учёта</h4><p>Приводим бухгалтерию в порядок после ошибок или пропусков за прошлые периоды.</p></div>
-        <div class="service-card"><h4>Консультации</h4><p>Оперативные ответы на вопросы по учёту, налогам и открытию расчётного счёта.</p></div>
+        <div class="service-card"><h4>Консультации</h4><p>Ответы на вопросы по учёту, налогам и открытию расчётного счёта. Разовая консультация или пакет.</p><div class="service-price">от 3 000 ₽</div></div>
         <div class="service-card"><h4>Отраслевые решения</h4><p>Сопровождение ВЭД и учёт с поправкой на специфику отрасли.</p></div>
         <div class="service-card"><h4>Нулевая отчётность</h4><p>Для компаний без операций: сдача нулевых деклараций, отчётность в ФНС и СФР.</p><div class="service-price">от 5 000 ₽</div></div>
         <div class="service-card"><h4>Проверка учёта (Главбух)</h4><p>Взгляд со стороны для контроля. Для тех, у кого уже есть бухгалтер.</p><div class="service-price">от 15 000 ₽/мес</div></div>
@@ -110,10 +110,10 @@
 
         <div class="service-card">
           <h4>Ликвидация ИП и ООО</h4>
-          <p>Закрытие бизнеса под ключ: подготовка документов, подача в ФНС, публикации. Нотариус — отдельно.</p>
-          <div class="service-price">ИП — от 3 500 ₽ + отчётность, ООО — от 30 000 ₽</div>
+          <p>Закрытие бизнеса под ключ: подготовка документов, подача в ФНС, публикации. Нотариус — отдельно. Отчётность всегда отдельно — её может подготовить Ваш текущий бухгалтер.</p>
+          <div class="service-price">ИП — от 3 500 ₽ + отчётность, ООО — от 30 000 ₽ + отчётность</div>
           <details class="service-conditions">
-            <summary>Условия для упрощённой ликвидации ООО (20 000 ₽)</summary>
+            <summary>Условия для упрощённой ликвидации ООО (20 000 ₽ + отчётность)</summary>
             <ul>
               <li>Статус МСП (в реестре субъектов МСП)</li>
               <li>Нет НДС (или официальное освобождение по ст. 145 НК РФ)</li>

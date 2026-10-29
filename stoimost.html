@@ -28,7 +28,7 @@
     gap: 16px; max-width: 1100px; margin: 0 auto; padding: 18px 0;
     flex-wrap: wrap; border-bottom: 1px solid var(--border); margin-bottom: 24px;
   }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
   .brand:hover .brand-text h1 { color: var(--green); }
   .logo-fallback {
     width: 44px; height: 44px; border-radius: 8px; background: var(--green);
@@ -174,6 +174,7 @@
 
   .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 20px 0; box-shadow: 0 2px 10px rgba(92,69,47,0.04); }
   .info-block h3 { margin: 0 0 18px; font-size: 20px; font-weight: 700; color: var(--green-dark); }
+  .info-block h4 { margin: 18px 0 10px; font-size: 15px; color: var(--green-dark); }
   .info-block ul { margin: 0; padding-left: 20px; font-size: 14px; }
   .info-block li { margin-bottom: 8px; }
   .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -184,6 +185,13 @@
   .contact-card a:hover { text-decoration: underline; }
   .requisites { font-size: 13px; line-height: 1.8; }
   .requisites strong { color: var(--green-dark); }
+
+  .price-logic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .price-logic-col { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; font-size: 14px; line-height: 1.6; }
+  .price-logic-col h4 { margin: 0 0 12px; font-size: 15px; color: var(--green-dark); }
+  .price-logic-col ul { margin: 0; padding-left: 18px; }
+  .price-logic-col li { margin-bottom: 10px; }
+  .price-logic-col li strong { color: var(--green-dark); }
 
   .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
   .faq-item:last-child { border-bottom: none; }
@@ -222,7 +230,7 @@
     .calc-wrapper { grid-template-columns: 1fr; gap: 16px; }
     .calc-sidebar { width: 100%; order: -1; margin-bottom: 16px; }
     .calc-top-grid { grid-template-columns: 1fr; }
-    .contacts-grid { grid-template-columns: 1fr; }
+    .contacts-grid, .price-logic-grid { grid-template-columns: 1fr; }
     .page-hero { padding: 28px 20px; }
     .page-hero h2 { font-size: 26px; }
   }
@@ -440,7 +448,7 @@
             <div class="calc-btn-pdf" id="btnPdf" title="Скачать PDF"><svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
           </div>
           <div class="calc-phone-line">Или позвоните: <a href="tel:+79242303010">+7 924 230 30 10</a></div>
-          <div class="calc-phone-line" style="margin-top: 4px; font-size: 11px; color: rgba(255,255,255,0.6);">Не дозвонились? Напишите в <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-w" target="_blank" rel="noopener" style="color: var(--sand);">Макс</a> — ответим.</div>
+          <div class="calc-phone-line" style="margin-top: 4px; font-size: 11px; color: rgba(255,255,255,0.6);">Не дозвонились? Напишите в <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-jSI" target="_blank" rel="noopener" style="color: var(--sand);">Макс</a> — ответим.</div>
 
           <details class="calc-details">
             <summary>Состав расчёта</summary>
@@ -470,23 +478,29 @@
     </div>
 
     <div class="info-block">
-      <h3>Что влияет на удорожание</h3>
-      <details class="faq-item"><summary>Документы и объёмы</summary><div class="faq-body">Пакеты исходящих (платёжки, счёт + акт/УПД) и входящих (накладные, УПД, чеки) документов — сверх включённых 5 комплектов в базовом тарифе. Сложный документооборот (много позиций, частые правки) — от 10 000 ₽/мес. Авансовые отчёты — 70 ₽ за чек.</div></details>
-      <details class="faq-item"><summary>Налоги и режимы</summary><div class="faq-body">НДС 5/7% — 5 000 ₽/мес, НДС 22% — 10 000 ₽/мес. Торговые точки по НДС — 5 000 ₽/мес за каждую дополнительную. Совмещение с патентом — от 6 000 ₽/мес за первый патент.</div></details>
-      <details class="faq-item"><summary>Кассы и счета</summary><div class="faq-body">Первый расчётный счёт включён, каждый следующий — 2 000 ₽/мес. Кассы: наличные — 1 000 ₽/мес, эквайринг — 2 000 ₽/мес за кассу.</div></details>
-      <details class="faq-item"><summary>Сотрудники</summary><div class="faq-body">Граждане РФ — 2 000 ₽/мес за человека (включая ГПХ), иностранцы — 2 500 ₽/мес. От 20 сотрудников — скидка 10%. Должники: первый включён, каждый следующий — 500 ₽/мес.</div></details>
-      <details class="faq-item"><summary>Маркетплейсы, ПВЗ, отрасли</summary><div class="faq-body">Маркетплейс — от 10 000 ₽/мес за первый, каждый следующий — 5 000 ₽/мес. ПВЗ — 5 000 ₽/мес. Общепит и производство — 5 000 ₽/мес. Строительство для ООО на УСН — от 25 000 (УСН 6%) / от 30 000 (УСН 15%) ₽/мес.</div></details>
-      <details class="faq-item"><summary>ВЭД и разовые услуги</summary><div class="faq-body">ГТД — 2 500 ₽ за декларацию, платёжки ВЭД — 1 000 ₽ за поручение. Отчётность ЕАЭС: до 100 наименований — 10 000 ₽, свыше 100 — плюс 100 ₽ за каждое наименование. Давальческие материалы — от 30 000 ₽/мес.</div></details>
-      <details class="faq-item"><summary>Другое</summary><div class="faq-body">Если Вашей услуги нет в списке — опишите её в калькуляторе в блоке «Своя услуга», посчитаем индивидуально.</div></details>
-    </div>
-
-    <div class="info-block">
-      <h3>Что влияет на уменьшение</h3>
-      <ul>
-        <li><strong>Скидка 10% при оплате за год</strong> — на месячные позиции тарифа. Экономия показывается в расчёте.</li>
-        <li><strong>Скидка 10% за объём</strong> — при штате от 20 сотрудников (применяется автоматически).</li>
-        <li><strong>Нулевая отчётность</strong> — если нет продаж и движений по счетам, тариф ниже (см. блок 8 в калькуляторе).</li>
-      </ul>
+      <h3>Из чего складывается цена и как её снизить</h3>
+      <div class="price-logic-grid">
+        <div class="price-logic-col">
+          <h4>Что увеличивает стоимость</h4>
+          <ul>
+            <li><strong>Больше документов</strong> — больше работы. Каждая накладная, УПД, платёжка требует времени. Сверх 5 комплектов в месяц — доплата.</li>
+            <li><strong>Больше касс и счетов</strong> — каждая касса и каждый лишний счёт требуют внимания.</li>
+            <li><strong>Сотрудники</strong> — каждый сотрудник это зарплата, взносы, отчётность. Сверх тарифа — доплата.</li>
+            <li><strong>Сложные участки</strong> — НДС, ВЭД, маркетплейс, строительство — больше операций и рисков.</li>
+            <li><strong>Нестандартные услуги</strong> — то, чего нет в тарифе (восстановление учёта, аудит, разовые задачи).</li>
+          </ul>
+        </div>
+        <div class="price-logic-col">
+          <h4>Как сэкономить</h4>
+          <ul>
+            <li><strong>Закройте неработающие расчётные счета.</strong> Каждый лишний счёт — доплата. Если счёт не используется — закройте его, и цена снизится.</li>
+            <li><strong>Переходите на безнал.</strong> Наличные расчёты и эквайринг — это кассы, инкассация, чеки. Безнал проще и дешевле.</li>
+            <li><strong>Если формируете платёжки и счета сами — оплата меньше.</strong> Мы подсказываем, как правильно.</li>
+            <li><strong>Приводите документы в порядок заранее.</strong> Чем меньше «хвостов» и «зависших» подотчётных сумм, тем быстрее работа.</li>
+            <li><strong>Оплачивайте за год.</strong> Скидка 10% на месячные позиции.</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="info-block">
@@ -502,7 +516,7 @@
           <h4>Телефон и почта</h4>
           <p>Телефон: <a href="tel:+79242303010">+7 924 230 30 10</a></p>
           <p>Почта: <a href="mailto:buh@biznes-n.ru">buh@biznes-n.ru</a></p>
-          <p>Макс: <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-w" target="_blank" rel="noopener">Написать в Макс</a></p>
+          <p>Макс: <a href="https://max.ru/u/f9LHodD0cOKnfTTn8LtRsj8vP-kAKlbQglGjJb2nrYev3YdCJUjvjtW-jSI" target="_blank" rel="noopener">Написать в Макс</a></p>
           <p>График: Пн–Пт, 9:00–17:00. Отвечаем в течение рабочего дня.</p>
         </div>
         <div class="contact-card">
@@ -963,6 +977,7 @@ const privacyLink = $('privacyLink');
 if (PRIVACY_URL) privacyLink.href = PRIVACY_URL;
 else privacyLink.addEventListener('click', (e) => { e.preventDefault(); alert('Политика конфиденциальности скоро появится на сайте.'); });
 
+// PDF через новую вкладку — работает на телефоне
 $('btnPdf').addEventListener('click', () => {
   const input = readInput(); const res = calculate(input);
   const pdfTemplate = $('pdf-template');
@@ -985,7 +1000,13 @@ $('btnPdf').addEventListener('click', () => {
   $('pdf-total').innerHTML = totalText;
   $('pdf-total-sub').innerHTML = res.oneTime ? 'Разово: ' + fmt(res.oneTime) : '';
 
-  window.print();
+  const win = window.open('', '_blank');
+  if (!win) { alert('Разрешите всплывающие окна для скачивания PDF.'); return; }
+  const styles = document.querySelector('style').innerHTML;
+  const content = pdfTemplate.outerHTML;
+  win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Расчёт стоимости — БИЗНЕС-Н</title><style>' + styles + ' body { padding: 0; background: #153524; margin: 0; } #pdf-template { visibility: visible !important; display: block !important; position: static !important; width: 100% !important; min-height: auto !important; }</style></head><body>' + content + '</body></html>');
+  win.document.close();
+  setTimeout(() => { win.focus(); win.print(); }, 500);
 });
 
 function buildMailto(subject, body) { return 'mailto:' + CALLBACK_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body); }
